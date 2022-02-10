@@ -10,10 +10,10 @@ class Cluster(object):
     cluster_index = 1
 
     def __init__(self, h, w, l, a, b):
-        self.update(h, w, l, a, b)
-        self.pixels = []
         self.no = self.cluster_index
         Cluster.cluster_index += 1
+        self.pixels = []
+        self.update(h, w, l, a, b)
 
     def update(self, h, w, l, a, b):
         self.h = h
@@ -29,7 +29,9 @@ class SLICProcessor(object):
         self.K = K
         self.M = M
 
-        self.data = color.rgb2lab(io.imread(filename))
+        rgbImg = io.imread(filename)
+        self.data = color.rgb2lab(rgbImg)
+
         self.image_height = self.data.shape[0]
         self.image_width = self.data.shape[1]
 
@@ -38,8 +40,9 @@ class SLICProcessor(object):
 
         self.dis = np.full((self.image_height, self.image_width), np.inf)
 
-        self.clusters = []
         self.label = {}
+        self.clusters = []
+        
 
     def init_clusters(self):
         h = self.S / 2
