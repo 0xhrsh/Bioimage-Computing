@@ -8,3 +8,4 @@
 - `python3 main.py`
 - You can change the values of K and M on line 157 of main.py, the default is K=100 and M=20.
 - You can change the number of iterations on line 6 of main.py, the default is 10.
+- A sample output can be found in the folder `q1/sample-output`.
