@@ -5,6 +5,9 @@ IMAGE_NAME = "Q1"
 IMAGE_URL = IMAGE_NAME + ".png"
 NUMBER_OF_ITERATIONS = 10
 
+DEFAULT_K = 100
+DEFAULT_M = 20
+
 
 class Cluster(object):
     cluster_index = 1
@@ -151,5 +154,5 @@ class SLICProcessor(object):
 
 
 if __name__ == '__main__':
-    p = SLICProcessor(IMAGE_URL, 100, 20)
+    p = SLICProcessor(IMAGE_URL, DEFAULT_K, DEFAULT_M)
     p.iterate(NUMBER_OF_ITERATIONS)
